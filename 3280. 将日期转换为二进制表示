@@ -1,0 +1,13 @@
+class Solution {
+public:
+string bi(string a){
+    string t = bitset<32>(stoi(a)).to_string();
+    return t.substr(t.find('1'));
+        }
+    string convertDateToBinary(string date) {   
+        string a1 = bi(date.substr(0, 4));
+        string a2 = bi(date.substr(5, 2));
+        string a3 = bi(date.substr(8, 2));
+        return a1 + '-'+ a2 + '-' + a3;
+    }
+};
