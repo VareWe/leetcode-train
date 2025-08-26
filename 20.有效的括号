@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool isValid(string s) {
+        unordered_map<char, char> pairs = {
+            {')', '('},
+            {']', '['},
+            {'}', '{'}
+        };
+        stack<char> stk;
+        for (int i=0;i<s.size();i++) {
+            if (pairs.count(s[i])) {
+                if ( stk.top() != pairs[s[i]]) {
+                    return false;
+                }
+                stk.pop();
+            }
+            else {
+                stk.push(s[i]);
+            }
+        }
+        return stk.empty();
+    }
+};
